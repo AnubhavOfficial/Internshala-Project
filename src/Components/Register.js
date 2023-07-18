@@ -43,7 +43,24 @@ const useStyles = makeStyles({
 });
 function Register() {
   const classes = useStyles();
-  const fields = ["First Name", "Last Name", "Email", "Password"];
+  const fields = [
+    {
+      fieldName: "First Name",
+      fieldType: "text",
+    },
+    {
+      fieldName: "Last Name",
+      fieldType: "text",
+    },
+    {
+      fieldName: "Email",
+      fieldType: "email",
+    },
+    {
+      fieldName: "Password",
+      fieldType: "password",
+    },
+  ];
   return (
     <div className={classes.main}>
       <div className={classes.parent}>
@@ -51,17 +68,17 @@ function Register() {
         <div>
           {fields.map((field, i) => {
             return (
-              <>
-                <Typography className={classes.fieldLabel} key={i}>
-                  {field}
+              <div key={new Date() + "" + Math.random() * 10000000}>
+                <Typography className={classes.fieldLabel}>
+                  {field.fieldName}
                 </Typography>
                 <TextField
                   className={classes.fieldInput}
                   variant="outlined"
                   size="small"
-                  key={new Date() + "" + Math.random() * 10000000}
-                ></TextField>
-              </>
+                  type={field.fieldType}
+                />
+              </div>
             );
           })}
           <Button className={classes.btn} disableRipple>

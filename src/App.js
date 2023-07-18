@@ -5,12 +5,14 @@ import TodayTotalRevenue from "./Components/TodayTotalRevenue";
 import ToolBar from "./Components/ToolBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Top5Sales from "./Components/Top5Sales";
+import MainPage from "./Components/MainPage";
 function App() {
   return (
     <div>
       <Router>
         <ToolBar />
         <Routes>
+          <Route path="/" element={<MainPage />} />
           <Route path="/AddSales" element={<AddSales />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Register" element={<Register />} />

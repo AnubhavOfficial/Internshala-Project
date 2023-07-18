@@ -1,10 +1,4 @@
-import {
-  AppBar,
-  Button,
-  Toolbar,
-  Typography,
-  makeStyles,
-} from "@material-ui/core";
+import { AppBar, Button, Toolbar, makeStyles } from "@material-ui/core";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -21,6 +15,20 @@ const useStyles = makeStyles({
     marginRight: "1rem",
     "&:hover": {
       background: "transparent",
+      transform: "scale(1.1)",
+      transitionDuration: "0.15s",
+      transition: "ease-in-out",
+    },
+  },
+  appName: {
+    fontSize: "1.3rem",
+    marginRight: "2rem",
+    color: "white",
+    "&:hover": {
+      background: "transparent",
+      transform: "scale(1.1)",
+      transitionDuration: "0.15s",
+      transition: "ease-in-out",
     },
   },
 });
@@ -53,9 +61,11 @@ function ToolBar() {
   return (
     <AppBar className={classes.main}>
       <Toolbar>
-        <Typography style={{ fontSize: "1.3rem", marginRight: "2rem" }}>
-          SALES APP
-        </Typography>
+        <Link to="/">
+          <Button disableRipple className={classes.appName}>
+            SALES APP
+          </Button>
+        </Link>
         {buttons.map((button, i) => {
           return (
             <Link
@@ -76,13 +86,15 @@ function ToolBar() {
             </Link>
           );
         })}
-        <Button
-          className={classes.btns}
-          style={{ color: "lightgrey" }}
-          disableRipple
-        >
-          Logout
-        </Button>
+        <Link to="/">
+          <Button
+            className={classes.btns}
+            style={{ color: "lightgrey" }}
+            disableRipple
+          >
+            Logout
+          </Button>
+        </Link>
       </Toolbar>
     </AppBar>
   );
