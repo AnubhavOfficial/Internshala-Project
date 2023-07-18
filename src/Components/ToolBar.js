@@ -7,7 +7,11 @@ const useStyles = makeStyles({
     background: "blue",
     color: "white",
     position: "static",
-    height: "4rem",
+    height: "2rem",
+    width: "calc(100vw - 2rem)",
+    padding: "1rem",
+    display: "flex",
+    alignItems: "center",
   },
   btns: {
     fontWeight: "500",
@@ -59,44 +63,42 @@ function ToolBar() {
     },
   ];
   return (
-    <AppBar className={classes.main}>
-      <Toolbar>
-        <Link to="/">
-          <Button disableRipple className={classes.appName}>
-            SALES APP
-          </Button>
-        </Link>
-        {buttons.map((button, i) => {
-          return (
-            <Link
-              to={button.buttonLink}
-              key={new Date() + "" + Math.random() * 10000000}
-            >
-              <Button
-                disableRipple
-                style={
-                  path === button.buttonLink
-                    ? { color: "white" }
-                    : { color: "lightgrey" }
-                }
-                className={classes.btns}
-              >
-                {button.buttonName}
-              </Button>
-            </Link>
-          );
-        })}
-        <Link to="/">
-          <Button
-            className={classes.btns}
-            style={{ color: "lightgrey" }}
-            disableRipple
+    <div className={classes.main}>
+      <Link to="/">
+        <Button disableRipple className={classes.appName}>
+          SALES APP
+        </Button>
+      </Link>
+      {buttons.map((button, i) => {
+        return (
+          <Link
+            to={button.buttonLink}
+            key={new Date() + "" + Math.random() * 10000000}
           >
-            Logout
-          </Button>
-        </Link>
-      </Toolbar>
-    </AppBar>
+            <Button
+              disableRipple
+              style={
+                path === button.buttonLink
+                  ? { color: "white" }
+                  : { color: "lightgrey" }
+              }
+              className={classes.btns}
+            >
+              {button.buttonName}
+            </Button>
+          </Link>
+        );
+      })}
+      <Link to="/">
+        <Button
+          className={classes.btns}
+          style={{ color: "lightgrey" }}
+          disableRipple
+        >
+          Logout
+        </Button>
+      </Link>
+    </div>
   );
 }
 

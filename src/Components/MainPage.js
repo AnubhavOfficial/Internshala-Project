@@ -29,8 +29,8 @@ function MainPage() {
     <div className={classes.main}>
       <div className={classes.parent}>
         <Typography className={classes.title}>
-          Welcome <br /> to <br />
-          Sales WebApplication
+          Welcome <br /> To <br />
+          Sales Web-Application
         </Typography>
       </div>
     </div>
